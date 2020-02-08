@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+    <!-- 定时器开关 -->
+    <!-- 可以指定执行线程池的初始大小、最大大小 -->
+    <task:executor id="executor" pool-size="5"/>
+    <!-- 调度线程池的大小，调度线程在被调度任务完成前不会空闲 -->
+    <task:scheduler id="scheduler" pool-size="10"/>
+    <!-- 使用注解驱动 -->
+    <task:annotation-driven executor="executor" scheduler="scheduler"/>
+
+</beans>
